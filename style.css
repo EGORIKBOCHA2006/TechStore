@@ -9,9 +9,17 @@
   --gap: 20px;
   --radius: 10px;
   --font-main: "Segoe UI", Arial, sans-serif;
-  --font-size-base: 16px;
-  --font-size-h1: 2.4rem;
-  --font-size-h2: 1.8rem;
+  --font-size-base: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
+  --font-size-h1: clamp(1.8rem, 1.2rem + 3vw, 2.8rem);
+  --font-size-h2: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+  --page-padding: 20px;
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --gap: 28px;
+    --page-padding: 40px;
+  }
 }
 
 * {
@@ -32,12 +40,18 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--gap);
-  padding: 16px 40px;
+  padding: 16px var(--page-padding);
   background: var(--color-card-bg);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -70,6 +84,7 @@ header nav a {
 }
 
 header nav a:hover,
+header nav a:focus-visible,
 header nav a.active {
   color: var(--color-primary);
   border-bottom-color: var(--color-primary);
@@ -90,11 +105,35 @@ header nav a.active {
   background: var(--color-primary-dark);
 }
 
-.cart-btn:focus {
+.cart-btn:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 2px;
 }
 
+
+.burger-toggle {
+  display: none;
+}
+
+.burger-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.burger-label span {
+  width: 26px;
+  height: 3px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.burger-label:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
 
 #hero {
   text-align: center;
@@ -125,18 +164,19 @@ header nav a.active {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hero-btn:hover {
+.hero-btn:hover,
+.hero-btn:focus-visible {
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .page-layout {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr;
   gap: 32px;
   max-width: 1200px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 0 var(--page-padding);
 }
 
 main section {
@@ -194,7 +234,7 @@ main h2::before {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--gap);
 }
 
@@ -214,7 +254,6 @@ main h2::before {
 }
 
 .product-card img {
-  width: 100%;
   border-radius: 6px;
   margin-bottom: 12px;
 }
@@ -247,7 +286,8 @@ main h2::before {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.product-card button:hover {
+.product-card button:hover,
+.product-card button:focus-visible {
   background: var(--color-primary);
   color: #fff;
 }
@@ -310,7 +350,7 @@ aside h2:not(:first-child) {
 footer {
   background: #1c1f26;
   color: #cfd3da;
-  padding: 40px;
+  padding: 40px var(--page-padding);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -337,7 +377,8 @@ footer {
   margin-bottom: 8px;
 }
 
-.footer-col a:hover {
+.footer-col a:hover,
+.footer-col a:focus-visible {
   color: var(--color-accent);
 }
 
@@ -351,24 +392,66 @@ footer {
   color: #888;
 }
 
-@media (max-width: 900px) {
-  .page-layout {
-    grid-template-columns: 1fr;
+
+@media (max-width: 768px) {
+
+  .burger-label {
+    display: flex;
   }
 
-  header {
-    flex-wrap: wrap;
-    padding: 16px 20px;
+  header nav {
+    order: 3;
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+  }
+
+  header nav a {
+    display: block;
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .burger-toggle:checked ~ nav {
+    max-height: 400px;
+  }
+
+  .cart-btn {
+    order: 2;
+  }
+
+  #hero {
+    padding: 50px 16px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 600px) {
-  header nav ul {
-    gap: 16px;
-    flex-wrap: wrap;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  #hero h1 {
-    font-size: 1.8rem;
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .page-layout {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

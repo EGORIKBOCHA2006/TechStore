@@ -10,11 +10,18 @@
 
 <header>
   <div class="logo">Tech<span>Store</span></div>
+
+  <input type="checkbox" id="burger-toggle" class="burger-toggle">
+  <label for="burger-toggle" class="burger-label" tabindex="0">
+    <span></span><span></span><span></span>
+  </label>
+
   <nav>
     <ul>
       <li><a href="#hero" class="active">Главная</a></li>
       <li><a href="#catalog">Каталог</a></li>
       <li><a href="#advantages">Преимущества</a></li>
+      <li><a href="#video">Видео</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
   </nav>
@@ -62,7 +69,7 @@
       <div class="product-grid">
 
         <article class="product-card">
-          <img src="https://dlcdnwebimgs.asus.com/gain/d13bab25-68bc-433f-bbe3-8e5a31f16e94/w800/fwebp" alt="Ноутбук ASUS Vivobook 15">
+          <img src="https://dlcdnwebimgs.asus.com/gain/d13bab25-68bc-433f-bbe3-8e5a31f16e94/w800/fwebp" alt="Ноутбук ASUS Vivobook 15" loading="lazy">
           <h3>Ноутбук ASUS Vivobook 15</h3>
           <p class="price">54 990 ₽</p>
           <p class="descr">Intel Core i5, 16 ГБ ОЗУ, SSD 512 ГБ</p>
@@ -70,7 +77,7 @@
         </article>
 
         <article class="product-card">
-          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTK3y2E6NStoEWZu3LlSc8FgJOJv4Q1feWkj71ad2lKOStaZL5Or9Jr0ijmViih22nBsvjkMcdBqf2zaAbdeqSTTPB-krZiEX89kE67HKrytfjQfrDJYNzwlOzDN19vgFAQWwiNzoP3lg&usqp=CAc" alt="Смартфон Xiaomi Redmi Note 13">
+          <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTK3y2E6NStoEWZu3LlSc8FgJOJv4Q1feWkj71ad2lKOStaZL5Or9Jr0ijmViih22nBsvjkMcdBqf2zaAbdeqSTTPB-krZiEX89kE67HKrytfjQfrDJYNzwlOzDN19vgFAQWwiNzoP3lg&usqp=CAc" alt="Смартфон Xiaomi Redmi Note 13" loading="lazy">
           <h3>Xiaomi Redmi Note 13</h3>
           <p class="price">19 490 ₽</p>
           <p class="descr">6.67", 128 ГБ, камера 108 Мп</p>
@@ -78,7 +85,7 @@
         </article>
 
         <article class="product-card">
-          <img src="https://c.dns-shop.ru/thumb/st4/fit/200/200/c000e411768bdd25529d2dafd90aefe2/2df2632475190df8324dd72376786ed737facef7dc387bf5fcd76f88d5fc28ec.jpg" alt="Беспроводные наушники Sony WH-1000XM5, белые">
+          <img src="https://c.dns-shop.ru/thumb/st4/fit/200/200/c000e411768bdd25529d2dafd90aefe2/2df2632475190df8324dd72376786ed737facef7dc387bf5fcd76f88d5fc28ec.jpg" alt="Беспроводные наушники Sony WH-1000XM5, белые" loading="lazy">
           <h3>Sony WH-1000XM5</h3>
           <p class="price">32 990 ₽</p>
           <p class="descr">Активное шумоподавление, 30 часов работы</p>
@@ -86,7 +93,7 @@
         </article>
 
         <article class="product-card">
-          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/96b89c4358ab06814d60ad216e301998/7258b2c31b27a014496d09ed5a0a7671c31b5729920fa999ca85fdf57fe5454e.png.webp" alt="Планшет Apple iPad">
+          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/96b89c4358ab06814d60ad216e301998/7258b2c31b27a014496d09ed5a0a7671c31b5729920fa999ca85fdf57fe5454e.png.webp" alt="Планшет Apple iPad" loading="lazy">
           <h3>Apple iPad (10 поколение)</h3>
           <p class="price">44 990 ₽</p>
           <p class="descr">10.9", 64 ГБ, Wi-Fi</p>
@@ -94,7 +101,7 @@
         </article>
 
         <article class="product-card">
-          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/69f25e9dbf90bef57c58d4577573ea1f/73a4167cc5de09b0ccc31a960a0a05ffb5aaf099b8b24c44d4ea9d0ed20b224d.jpg.webp" alt="Умные часы Amazfit GTS 4, чёрные">
+          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/69f25e9dbf90bef57c58d4577573ea1f/73a4167cc5de09b0ccc31a960a0a05ffb5aaf099b8b24c44d4ea9d0ed20b224d.jpg.webp" alt="Умные часы Amazfit GTS 4, чёрные" loading="lazy">
           <h3>Amazfit GTS 4</h3>
           <p class="price">11 990 ₽</p>
           <p class="descr">AMOLED-дисплей, GPS, до 8 дней автономности</p>
@@ -102,7 +109,7 @@
         </article>
 
         <article class="product-card">
-          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/6871679e8e8e1f855ab528a1b5e5044a/4e25900e5985e94d08256012d81294ec6262f303a8f163524f008eae04015a91.jpg.webp" alt="Механическая клавиатура Logitech G413">
+          <img src="https://c.dns-shop.ru/thumb/st1/fit/500/500/6871679e8e8e1f855ab528a1b5e5044a/4e25900e5985e94d08256012d81294ec6262f303a8f163524f008eae04015a91.jpg.webp" alt="Механическая клавиатура Logitech G413" loading="lazy">
           <h3>Logitech G413 SE</h3>
           <p class="price">6 490 ₽</p>
           <p class="descr">Механические переключатели, подсветка</p>
@@ -160,5 +167,6 @@
   <p class="copy">© Егор Бочаров БСБО-20-24 TechStore 2026</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
