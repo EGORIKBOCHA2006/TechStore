@@ -351,3 +351,24 @@ footer {
   color: #888;
 }
 
+@media (max-width: 900px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  header nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  #hero h1 {
+    font-size: 1.8rem;
+  }
+}
